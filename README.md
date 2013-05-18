@@ -1,6 +1,6 @@
 bookmarklets
 ============
 
-Some bookmarklets. Hosted here so they can be served by github over https. Thanks github.
+Some bookmarklets. Hosted here so they can be served by github over https.
 
-[Hindenburg](http://sturob.com/tools/hindenburg)
+[Hindenburg](http://sturob.com/tools/hindenburg) - Switch between map sites

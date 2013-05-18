@@ -4,28 +4,29 @@
     return;
   }
 
-  function url2keys(url){
-    var b = url.split('?')[1].split('&');
-    var keys = {};
-    b.forEach(function(k){ 
-      var tmp = k.split('=');
-      keys[tmp[0]] = tmp[1];
+  function url_to_params (url) {
+    var pairs = url.split('?')[1].split('&');
+    var params = {};
+    pairs.forEach(function (pair) { 
+      var tmp = pair.split('=');
+      params[tmp[0]] = tmp[1];
     });
-    return keys;
+    return params;
   }
 
   var pov = { site:'', lat:0, lng:0, dir:0 };
 
   function A() {
-    function google() { 
-    // prep for new google maps:
-    // _.VV.lat
-    // window.location.hash.split('!').splice(5, 2).map(function(n){ return n.substr(2) }) -> [ lat, lng ]
+    function newGoogle () {
+      // _.VV.lat
+      // window.location.hash.split('!').splice(5, 2).map(function(n){ return n.substr(2) }) -> [ lat, lng ]      
+    }
+    function google () { 
       var url = gApplication.getPageUrl();
-      var keys = url2keys(url);
-      pov.lat = keys.ll.split(',')[0];
-      pov.lng = keys.ll.split(',')[1];
-      if (keys.cbp) pov.dir = keys.cbp.split(',')[1];
+      var params = url_to_params(url);
+      pov.lat = params.ll.split(',')[0];
+      pov.lng = params.ll.split(',')[1];
+      if (params.cbp) pov.dir = params.cbp.split(',')[1];
       pov.site = 'google';
       return pov;
     }
@@ -89,5 +90,4 @@
 
   var b = B(CYCLE[a.site], a);
   if (b) window.location = b;
-  
 })();
