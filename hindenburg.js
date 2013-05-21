@@ -19,7 +19,20 @@
   function A() {
     function newGoogle () {
       // _.VV.lat
-      // window.location.hash.split('!').splice(5, 2).map(function(n){ return n.substr(2) }) -> [ lat, lng ]      
+      var data_url = window.location.hash.split('!').splice(2);
+      var keys = data_url.map(function (n) { return n.substr(0, 2) });
+      var values = data_url.map(function (n) { return n.substr(2) });
+      var params = {};
+      for (var n = 0; n < keys.length; n++) {
+        params[ keys[n] ] = values[n];
+      }
+      pov.lat = params['3d'];
+      pov.lng = params['2d'];
+      pov.dir = params['1f'];
+      pov.site = 'google';
+      // console.log( params )
+      // console.log( pov )
+      return pov;  
     }
     function google () { 
       var url = gApplication.getPageUrl();
@@ -51,6 +64,11 @@
     if (window.gApplication) return google();
     if (window.Microsoft) return bing();
     if (window.nokia) return nokia();
+
+    // blaah, new google maps, hacky
+    if (window.location.href.search(/\.google\./) && window.location.href.search(/maps/) && window._) {
+      return newGoogle();
+    } 
   }
 
   function B(site, a) {
@@ -62,11 +80,12 @@
     }
 
     var sites = {
-      google: 'maps.google.com/?cbp=11,' + a.dir + ',,0,-10&layer=c&ie=UTF8&vpsrc=4&layer=c&ll=' 
-               + a.lat + ',' + a.lng + '&t=h&z=17&spn…=15&cbll=' + a.lat + ',' + a.lng,
+      google: 'maps.google.com/?cbp=11,' + a.dir + ',,0,-10&layer=c&vpsrc=4&layer=c&ll=' 
+               + a.lat + ',' + a.lng + '&t=h&z=17&cbll=' + a.lat + ',' + a.lng,
       bing:   'www.bing.com/maps/default.aspx?cp=' + a.lat + '~' + a.lng + '&lvl=18&sty=b&dir=' + a.dir,
       nokia:  'here.com/'+ a.lat + ',' + a.lng + ',18,' + a.dir + ',65,3d.day' // 0->65
     }
+    // console.log(sites[site])
     return 'http://' + sites[site];
   }
 
