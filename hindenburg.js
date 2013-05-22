@@ -81,7 +81,7 @@
 
     var sites = {
       google: 'www.google.com/maps/preview#!data=!1m6!1m3!1d1566!2d' + a.lng + '!3d' + a.lat + 
-              '!2m1!1f270!2m1!1e3&fid=7',
+              '!2m1!1f' + a.dir + '!2m1!1e3&fid=7',
       // anglegoogle: 'www.google.com/maps/preview#!data=!1m7!1m3!1d2000!2d' + a.lng + '!3d' + a.lat + '!2m2!1f270!2f39.26!2m1!1e3&fid=7',
       // google: 'maps.google.com/?cbp=11,' + a.dir + ',,0,-10&layer=c&vpsrc=4&layer=c&ll=' 
       //          + a.lat + ',' + a.lng + '&t=h&z=17&cbll=' + a.lat + ',' + a.lng,
