@@ -82,13 +82,9 @@
     var sites = {
       google: 'www.google.com/maps/preview#!data=!1m6!1m3!1d1566!2d' + a.lng + '!3d' + a.lat + 
               '!2m1!1f' + a.dir + '!2m1!1e3&fid=7',
-      // anglegoogle: 'www.google.com/maps/preview#!data=!1m7!1m3!1d2000!2d' + a.lng + '!3d' + a.lat + '!2m2!1f270!2f39.26!2m1!1e3&fid=7',
-      // google: 'maps.google.com/?cbp=11,' + a.dir + ',,0,-10&layer=c&vpsrc=4&layer=c&ll=' 
-      //          + a.lat + ',' + a.lng + '&t=h&z=17&cbll=' + a.lat + ',' + a.lng,
       bing:   'www.bing.com/maps/default.aspx?cp=' + a.lat + '~' + a.lng + '&lvl=18&sty=b&dir=' + a.dir,
-      nokia:  'here.com/'+ a.lat + ',' + a.lng + ',18,' + a.dir + ',65,3d.day' // 0->65
+      nokia:  'here.com/'+ a.lat + ',' + a.lng + ',18,' + a.dir + ',25,3d.day' 
     }
-    console.log( sites[site] )
     return 'http://' + sites[site];
   }
 
