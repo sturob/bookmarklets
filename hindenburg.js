@@ -19,19 +19,17 @@
   function A() {
     function newGoogle () {
       // _.VV.lat
-      var data_url = window.location.hash.split('!').splice(2).reverse(); //
-      var keys = data_url.map(function (n) { return n.substr(0, 2) });
-      var values = data_url.map(function (n) { return n.substr(2) });
+      var data = window.location.pathname.match(/@(.*)\//)[1].split(',');
+      pov.lat = data.shift();
+      pov.lng = data.shift();
+      var keys = data.map(function (n) { return n.substr(-1) });
+      var values = data.map(function (n) { return n.substr(0, n.length() - 1) });
       var params = {};
       for (var n = 0; n < keys.length; n++) {
         params[ keys[n] ] = values[n];
       }
-      pov.lat = params['3d'];
-      pov.lng = params['2d'];
-      pov.dir = params['1f'];
+      pov.dir = params['h']
       pov.site = 'google';
-      // console.log( params )
-      // console.log( pov )
       return pov;  
     }
     function google () { 
