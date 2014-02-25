@@ -23,7 +23,7 @@
       pov.lat = data.shift();
       pov.lng = data.shift();
       var keys = data.map(function (n) { return n.substr(-1) });
-      var values = data.map(function (n) { return n.substr(0, n.length() - 1) });
+      var values = data.map(function (n) { return n.substr(0, n.length - 1) });
       var params = {};
       for (var n = 0; n < keys.length; n++) {
         params[ keys[n] ] = values[n];
