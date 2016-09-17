@@ -19,7 +19,7 @@
   function A() {
     function newGoogle () {
       // _.VV.lat
-      var data = window.location.pathname.match(/@(.*)\//)[1].split(',');
+      var data = window.location.pathname.split(/@/);
       pov.lat = data.shift();
       pov.lng = data.shift();
       var keys = data.map(function (n) { return n.substr(-1) });
