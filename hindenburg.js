@@ -29,7 +29,7 @@
       for (var n = 0; n < keys.length; n++) {
         params[ keys[n] ] = values[n];
       }
-      pov.dir = params['h']
+      pov.dir = params['h'] || 0
       pov.site = 'google';
       return pov;  
     }
@@ -90,7 +90,8 @@
       bing:   'www.bing.com/mapspreview?cp=' + a.lat + '~' + a.lng + '&lvl=18&sty=b&dir=' + a.dir,
       nokia:  'here.com/'+ a.lat + ',' + a.lng + ',18,' + a.dir + ',25,3d.day' 
     }
-    return 'http://' + sites[site];
+    console.log(a)
+    return 'https://' + sites[site];
   }
 
   if (window.gumtree) {
