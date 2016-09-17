@@ -20,6 +20,7 @@
     function newGoogle () {
       // _.VV.lat
       var data = window.location.pathname.split(/@/);
+      data.shift();
       pov.lat = data.shift();
       pov.lng = data.shift();
       var keys = data.map(function (n) { return n.substr(-1) });
