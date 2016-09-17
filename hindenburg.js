@@ -63,14 +63,14 @@
       return pov;
     }
 
-    if (window.gApplication) return google();
+    if (window.gApplication) return newGoogle();
     if (window.Microsoft) return bing();
     if (window.here) return nokia();
 
     // blaah, new google maps, hacky
-    if (window.location.href.search(/\.google\./) && window.location.href.search(/maps/) && window._) {
-      return newGoogle();
-    } 
+    //if (window.location.href.search(/\.google\./) && window.location.href.search(/maps/) && window._) {
+    //  return newGoogle();
+    //} 
   }
 
   function B(site, a) {
