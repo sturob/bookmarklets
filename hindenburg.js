@@ -77,10 +77,14 @@
       a.dir = 0.1;
     }
 
+
+
+https://www.bing.com/mapspreview?cp=42.4257713~18.7671522&lvl=18&sty=b&dir=270
+
     var sites = {
       google: 'www.google.com/maps/preview#!data=!1m6!1m3!1d1566!2d' + a.lng + '!3d' + a.lat + 
               '!2m1!1f' + a.dir + '!2m1!1e3&fid=7',
-      bing:   'www.bing.com/maps/default.aspx?cp=' + a.lat + '~' + a.lng + '&lvl=18&sty=b&dir=' + a.dir,
+      bing:   'www.bing.com/mapspreview?cp=' + a.lat + '~' + a.lng + '&lvl=18&sty=b&dir=' + a.dir,
       nokia:  'here.com/'+ a.lat + ',' + a.lng + ',18,' + a.dir + ',25,3d.day' 
     }
     return 'http://' + sites[site];
