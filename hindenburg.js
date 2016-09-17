@@ -64,7 +64,7 @@
       return pov;
     }
 
-    if (window.gApplication) return newGoogle();
+    if (window.google) return newGoogle();
     if (window.Microsoft) return bing();
     if (window.here) return nokia();
 
