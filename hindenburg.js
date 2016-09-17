@@ -52,10 +52,14 @@
     }
 
     function bing () {
+      // ?cp=42.4257713~18.7671522&lvl=18&sty=b&dir=270
+      
+      var data = url_to_params( window.location.search );
+      var ll = data.cp.split('~');
       pov.site = 'bing';
-      pov.lat = map.get_center().latitude;
-      pov.lng = map.get_center().longitude;
-      pov.dir = map.get_heading() ? map.get_heading() : 0;
+      pov.lat = ll[0];
+      pov.lng = ll[1];
+      pov.dir = data.dir;
       return pov;
     }
 
